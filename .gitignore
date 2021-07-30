@@ -4,7 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+*.properties
 ### STS ###
 .apt_generated
 .classpath
@@ -16,7 +16,7 @@ build/
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
-
+*.properties
 ### my ignore ###
 src/main/resources/application.yml
 
@@ -28,13 +28,14 @@ src/main/resources/application.yml
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-
+*.properties
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-
+*.properties
 ### VS Code ###
 .vscode/
+*.properties
