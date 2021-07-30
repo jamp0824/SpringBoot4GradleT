@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -26,12 +28,19 @@ import lombok.AllArgsConstructor;
 public class MemberService implements UserDetailsService {
     private MemberRepository memberRepository;
 
+	private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Transactional
     public Long joinUser(MemberDto memberDto) {
         // 비밀번호 암호화
                BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
-
+        
+        logger.trace("Trace level 테스트");
+		logger.debug("DEBUG Level 테스트");
+		logger.info("INFO level 테스트");
+		logger.warn("INFO level 테스트");
+		logger.error("INFO level 테스트");
         return memberRepository.save(memberDto.toEntity()).getId();
     }
 
